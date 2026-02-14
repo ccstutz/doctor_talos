@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Talos's Traveling Show & Therapeutic Exhibition</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Starfield (the void beyond) -->
+  <div class="starfield">
+    <div class="stars"></div>
+    <div class="stars-2"></div>
+    <div class="stars-3"></div>
+  </div>
+
+  <!-- Curtain overlay -->
+  <div class="curtain-overlay" id="curtain">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="parchment">
+    <div class="page-container curtain-content" id="main-content">
+
+      <header style="margin-top: 2rem;">
+        <h1 class="title-glow">Doctor Talos's<br>Traveling Show</h1>
+        <h2 class="glitch">&amp; Therapeutic Exhibition</h2>
+        <p class="subtitle">~ Performances Nightly at the Edge of the Universe ~</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <div class="ornate-frame">
+        <div class="monologue">
+          <p>Welcome, welcome, most esteemed and no doubt thoroughly bewildered guest! You have arrived — whether by fortune, accident, or the inscrutable machinations of a universe that long ago ceased to care about causality — at the greatest and quite possibly the <em>only</em> theatrical exhibition still operating under this exhausted red sun.</p>
+          <p>I am Doctor Talos. Physician, playwright, impresario, and — should the occasion demand it — barber-surgeon. Do not be alarmed by the flickering. The lights have always done that. Reality, I find, is a matter of staging.</p>
+          <p>Please, take your seat. The show is about to begin.</p>
+          <span class="speaker">— Doctor Talos</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2 style="margin-bottom: 0.2em;">Tonight's Programme</h2>
+      <p class="subtitle">~ Presented for Your Edification & Unease ~</p>
+
+      <nav>
+        <ul class="program-nav">
+          <li class="fade-in"><a href="blog.html">Act I — The Dispatches</a></li>
+          <li class="fade-in"><a href="adventure.html">Act II — The Play <em>(In Which You Are the Hero)</em></a></li>
+          <li class="fade-in"><a href="about.html">Act III — About the Doctor</a></li>
+        </ul>
+      </nav>
+
+      <div class="divider"></div>
+
+      <div class="performance-counter">
+        <p>This evening's performance is number <span class="count teal-flash" id="visit-count">—</span></p>
+        <p style="font-size: 0.75rem; margin-top: 0.3rem;">since the troupe last reset its ledger</p>
+      </div>
+
+      <footer class="page-footer">
+        <p><em>The show must go on. The sun demands it.</em></p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/curtain.js"></script>
+  <script>
+    // Performance counter
+    (function() {
+      let count = parseInt(localStorage.getItem('talos_visit_count') || '0', 10);
+      count++;
+      localStorage.setItem('talos_visit_count', count);
+      document.getElementById('visit-count').textContent = count;
+    })();
+  </script>
+</body>
+</html>

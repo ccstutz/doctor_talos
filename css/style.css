@@ -1,0 +1,505 @@
+/* ============================================
+   DOCTOR TALOS'S TRAVELING SHOW
+   Core Styles — "Dying Earth Playbill"
+   ============================================ */
+
+/* --- Color Palette --- */
+:root {
+  --burgundy: #6b1d2a;
+  --burgundy-deep: #4a0e1a;
+  --gold: #c4a23e;
+  --gold-dim: #9a7d2e;
+  --parchment: #f0e6d0;
+  --parchment-dark: #d9ccb0;
+  --shadow: #1a1118;
+  --teal: #2e8b8b;
+  --teal-glow: #3fdada;
+  --ink: #2c1810;
+  --blood: #8b0000;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--shadow);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- Aged Parchment Background --- */
+.parchment {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(193, 177, 145, 0.08) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(193, 177, 145, 0.08) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(193, 177, 145, 0.06) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(193, 177, 145, 0.06) 25%, transparent 25%),
+    linear-gradient(to bottom, #ede3cc, #f0e6d0 20%, #ece0c8 50%, #e8dbc0 80%, #e2d5b8);
+  min-height: 100vh;
+  z-index: 1;
+}
+
+/* Stain/age spots via pseudo-element */
+.parchment::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 115, 75, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 115, 75, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 80%, rgba(107, 29, 42, 0.04) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  color: var(--burgundy);
+  letter-spacing: 0.03em;
+}
+
+h1 {
+  font-size: 2.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--burgundy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+a:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+em {
+  font-style: italic;
+  color: var(--burgundy-deep);
+}
+
+strong {
+  font-weight: bold;
+  color: var(--burgundy);
+}
+
+/* --- Layout --- */
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-container.wide {
+  max-width: 1000px;
+}
+
+/* --- Ornamental Border Frame --- */
+.ornate-frame {
+  border: 2px solid var(--gold-dim);
+  padding: 2rem;
+  position: relative;
+  margin: 1.5rem 0;
+  background: rgba(240, 230, 208, 0.5);
+}
+
+.ornate-frame::before,
+.ornate-frame::after {
+  content: '❧';
+  position: absolute;
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+.ornate-frame::before {
+  top: -0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--parchment);
+  padding: 0 0.5rem;
+}
+
+.ornate-frame::after {
+  bottom: -0.8rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  background: var(--parchment);
+  padding: 0 0.5rem;
+}
+
+/* Double-line ornate border variant */
+.ornate-frame-double {
+  border: 1px solid var(--gold-dim);
+  outline: 1px solid var(--gold-dim);
+  outline-offset: 4px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  position: relative;
+  background: rgba(240, 230, 208, 0.3);
+}
+
+/* --- Decorative Dividers --- */
+.divider {
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+}
+
+.divider::before {
+  content: '— ✦ ✦ ✦ —';
+}
+
+.divider-line {
+  border: none;
+  border-top: 1px solid var(--gold-dim);
+  margin: 2rem auto;
+  width: 60%;
+  position: relative;
+}
+
+.divider-line::after {
+  content: '◆';
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--parchment);
+  color: var(--gold);
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* --- Navigation (Theatrical Program) --- */
+.program-nav {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.program-nav li {
+  margin: 0.75rem 0;
+  text-align: center;
+}
+
+.program-nav a {
+  display: inline-block;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  color: var(--burgundy);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.program-nav a::before,
+.program-nav a::after {
+  content: '✦';
+  color: var(--gold);
+  margin: 0 0.5rem;
+  font-size: 0.6rem;
+  vertical-align: middle;
+}
+
+.program-nav a:hover {
+  background: var(--burgundy);
+  color: var(--parchment);
+  border-color: var(--burgundy);
+}
+
+.program-nav a:hover::before,
+.program-nav a:hover::after {
+  color: var(--gold);
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gold-dim);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.top-nav a {
+  margin: 0 1rem;
+  border-bottom: none;
+  color: var(--burgundy-deep);
+}
+
+.top-nav a:hover {
+  color: var(--teal);
+}
+
+.top-nav .sep {
+  color: var(--gold);
+}
+
+/* --- Subtitle / Tagline --- */
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  color: var(--burgundy-deep);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+
+/* --- Monologue / Blockquote --- */
+.monologue {
+  font-style: italic;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  border-left: 3px solid var(--gold);
+  color: var(--burgundy-deep);
+  line-height: 1.8;
+  background: rgba(196, 162, 62, 0.05);
+}
+
+.monologue .speaker {
+  display: block;
+  text-align: right;
+  margin-top: 1rem;
+  font-style: normal;
+  font-variant: small-caps;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+}
+
+/* --- Drop Cap --- */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding-right: 0.1em;
+  color: var(--burgundy);
+  font-weight: bold;
+}
+
+/* --- Blog Post Cards --- */
+.post-card {
+  border: 1px solid var(--gold-dim);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(240, 230, 208, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.post-card:hover {
+  border-color: var(--burgundy);
+  background: rgba(240, 230, 208, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 17, 24, 0.15);
+}
+
+.post-card .post-date {
+  font-size: 0.8rem;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+}
+
+.post-card .post-title {
+  font-size: 1.3rem;
+  color: var(--burgundy);
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.post-card .post-preview {
+  font-style: italic;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.post-card .read-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--teal);
+  border-bottom: 1px solid var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* --- Post Content --- */
+.post-content {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.post-content p {
+  margin-bottom: 1.2em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.post-meta {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.post-meta .date {
+  font-variant: small-caps;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gold-dim);
+  font-size: 0.9rem;
+}
+
+.post-nav a {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- Performance Counter --- */
+.performance-counter {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 0.85rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.06em;
+}
+
+.performance-counter .count {
+  font-size: 1.4rem;
+  color: var(--burgundy);
+  font-weight: bold;
+  display: inline-block;
+  min-width: 2em;
+}
+
+/* --- Footer --- */
+.page-footer {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--gold-dim);
+  font-style: italic;
+  color: var(--gold-dim);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* --- About Page --- */
+.about-section {
+  margin: 2rem 0;
+}
+
+.about-section h3 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-links {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.contact-links li {
+  margin: 0.5rem 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.06em;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .page-container {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .ornate-frame {
+    padding: 1.2rem;
+  }
+
+  .program-nav a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .top-nav a {
+    margin: 0 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .monologue {
+    padding: 1rem 1.2rem;
+  }
+
+  .post-nav {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
