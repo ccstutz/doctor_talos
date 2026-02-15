@@ -50,12 +50,15 @@ body {
     linear-gradient(to bottom, #ede3cc, #f0e6d0 20%, #ece0c8 50%, #e8dbc0 80%, #e2d5b8);
   min-height: 100vh;
   z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 100px rgba(0, 0, 0, 0.3);
 }
 
 /* Stain/age spots via pseudo-element */
 .parchment::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(139, 115, 75, 0.08) 0%, transparent 50%),
