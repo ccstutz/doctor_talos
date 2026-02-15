@@ -13,23 +13,14 @@
   var isPostPage = path.indexOf('post.html') !== -1 || path.endsWith('/post') || path === 'post';
 
   // Load manifest then render
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/posts/index.json', true);
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      try { POST_SLUGS = JSON.parse(xhr.responseText); } catch (e) {}
-    }
-    if (isPostPage) {
-      loadSinglePost();
-    } else {
-      loadPostIndex();
-    }
-  };
-  xhr.onerror = function () {
-    if (isPostPage) loadSinglePost();
-    else loadPostIndex();
-  };
-  xhr.send();
+  fetch('/posts/index.json')
+    .then(function (res) { return res.ok ? res.json() : []; })
+    .then(function (slugs) { POST_SLUGS = slugs; })
+    .catch(function () {})
+    .finally(function () {
+      if (isPostPage) loadSinglePost();
+      else loadPostIndex();
+    });
 
   function loadPostIndex() {
     var container = document.getElementById('posts-container');
@@ -37,11 +28,16 @@
 
     container.innerHTML = '';
 
+    if (POST_SLUGS.length === 0) {
+      renderPostIndex(container, []);
+      return;
+    }
+
     var loaded = 0;
     var posts = [];
 
     POST_SLUGS.forEach(function (slug, index) {
-      fetchPost(slug, function (post) {
+      fetchPost(slug).then(function (post) {
         posts[index] = post;
         loaded++;
         if (loaded === POST_SLUGS.length) {
@@ -89,7 +85,7 @@
       return;
     }
 
-    fetchPost(slug, function (post) {
+    fetchPost(slug).then(function (post) {
       if (!post) {
         showPostError('This dispatch could not be found. It may have been consumed by entropy.');
         return;
@@ -131,24 +127,10 @@
     });
   }
 
-  function fetchPost(slug, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/posts/' + slug + '.json', true);
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        try {
-          callback(JSON.parse(xhr.responseText));
-        } catch (e) {
-          callback(null);
-        }
-      } else {
-        callback(null);
-      }
-    };
-    xhr.onerror = function () {
-      callback(null);
-    };
-    xhr.send();
+  function fetchPost(slug) {
+    return fetch('/posts/' + slug + '.json')
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .catch(function () { return null; });
   }
 
   function showPostError(message) {
