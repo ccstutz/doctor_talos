@@ -10,9 +10,12 @@
 
   var isPostPage = window.location.pathname.indexOf('post.html') !== -1;
 
+  // Resolve base path for fetch URLs (handles pretty URLs / subdir serving)
+  var basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+
   // Load manifest then render
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'posts/index.json', true);
+  xhr.open('GET', basePath + 'posts/index.json', true);
   xhr.onload = function () {
     if (xhr.status === 200) {
       try { POST_SLUGS = JSON.parse(xhr.responseText); } catch (e) {}
@@ -131,7 +134,7 @@
 
   function fetchPost(slug, callback) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'posts/' + slug + '.json', true);
+    xhr.open('GET', basePath + 'posts/' + slug + '.json', true);
     xhr.onload = function () {
       if (xhr.status === 200) {
         try {
