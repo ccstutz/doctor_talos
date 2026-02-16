@@ -10,6 +10,8 @@
 <body>
   {{ partial "intro.html" . }}
 
+  <canvas id="static-noise" class="margin-static"></canvas>
+
   <div class="terminal">
     <div class="page-container intro-content" id="main-content">
       {{ block "main" . }}{{ end }}
@@ -19,6 +21,7 @@
   </div>
 
   <script src="/js/intro.js"></script>
+  <script src="/js/static.js"></script>
   {{ block "scripts" . }}{{ end }}
 </body>
 </html>

@@ -46,6 +46,7 @@ body {
 /* --- Main Content Area --- */
 .terminal {
   position: relative;
+  z-index: 1;
   background: #121212;
   min-height: 100vh;
   max-width: 900px;
