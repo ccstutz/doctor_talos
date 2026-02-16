@@ -3,7 +3,7 @@ title: "On the Nature of Suns and Other Unreliable Things"
 subtitle: "Being a Meditation on Light, Entropy, and the Obligations of Dying Stars"
 slug: "002-on-the-nature-of-suns"
 date: 2026-02-14T18:00:00
-dateDisplay: "The 14th Day of the Month of Frost, Year of the New Sun — Later That Evening"
+dateDisplay: "2026.02.14 // 18:00 UTC"
 ---
 
 The sun, I am told by those who claim to know about such things, is a ball of burning gas. Or plasma. Or the dream of a sleeping god. The explanation varies depending on the era, the scholar, and the amount of wine consumed prior to theorizing.

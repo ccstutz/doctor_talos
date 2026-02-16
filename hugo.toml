@@ -1,6 +1,6 @@
 baseURL = "https://doctortalos.com"
 languageCode = "en-us"
-title = "Doctor Talos's Traveling Show & Therapeutic Exhibition"
+title = "Doctor Talos — Digital Signal Archive"
 
 [permalinks]
   posts = "/posts/:slug/"

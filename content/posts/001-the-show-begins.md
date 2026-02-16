@@ -3,7 +3,7 @@ title: "The Show Begins"
 subtitle: "A Welcome to Those Who Have Wandered In"
 slug: "001-the-show-begins"
 date: 2026-02-14T12:00:00
-dateDisplay: "The 14th Day of the Month of Frost, Year of the New Sun"
+dateDisplay: "2026.02.14 // 12:00 UTC"
 ---
 
 So you have found us. Whether by intention, accident, or the sort of cosmic bureaucratic error that tends to occur when a universe is winding down its operations — you are here, and here you shall remain, at least until the intermission.

@@ -1,7 +1,7 @@
 <nav class="top-nav">
-  <a href="/"{{ if eq .active "show" }}><strong{{ end }}>The Show{{ if eq .active "show" }}</strong>{{ end }}</a>
-  <span class="sep">&#10022;</span>
-  <a href="/blog/"{{ if eq .active "dispatches" }}><strong{{ end }}>Dispatches{{ if eq .active "dispatches" }}</strong>{{ end }}</a>
-  <span class="sep">&#10022;</span>
-  <a href="/about/"{{ if eq .active "doctor" }}><strong{{ end }}>The Doctor{{ if eq .active "doctor" }}</strong>{{ end }}</a>
+  <a href="/"{{ if eq .active "show" }}><strong{{ end }}>home{{ if eq .active "show" }}</strong>{{ end }}</a>
+  <span class="sep">//</span>
+  <a href="/blog/"{{ if eq .active "dispatches" }}><strong{{ end }}>dispatches{{ if eq .active "dispatches" }}</strong>{{ end }}</a>
+  <span class="sep">//</span>
+  <a href="/about/"{{ if eq .active "doctor" }}><strong{{ end }}>about{{ if eq .active "doctor" }}</strong>{{ end }}</a>
 </nav>

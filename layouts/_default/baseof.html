@@ -8,18 +8,17 @@
   <link rel="stylesheet" href="/css/animations.css">
 </head>
 <body>
-  {{ partial "starfield.html" . }}
-  {{ partial "curtain.html" . }}
+  {{ partial "intro.html" . }}
 
-  <div class="parchment">
-    <div class="page-container curtain-content" id="main-content">
+  <div class="terminal">
+    <div class="page-container intro-content" id="main-content">
       {{ block "main" . }}{{ end }}
 
       {{ partial "footer.html" . }}
     </div>
   </div>
 
-  <script src="/js/curtain.js"></script>
+  <script src="/js/intro.js"></script>
   {{ block "scripts" . }}{{ end }}
 </body>
 </html>

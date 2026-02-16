@@ -1,48 +1,49 @@
-{{ define "title" }}Doctor Talos's Traveling Show & Therapeutic Exhibition{{ end }}
+{{ define "title" }}Doctor Talos — Digital Signal Archive{{ end }}
 
 {{ define "main" }}
       <header style="margin-top: 2rem;">
-        <h1 class="title-glow">Doctor Talos's<br>Traveling Show</h1>
-        <h2 class="glitch">&amp; Therapeutic Exhibition</h2>
-        <p class="subtitle">~ Performances Nightly at the Edge of the Universe ~</p>
+        <pre style="color: var(--green); text-align: center; font-size: 0.55rem; line-height: 1.2; margin-bottom: 1rem;">
+ ____   ___   ____ _____ ___  ____    _____  _    _     ___  ____
+|  _ \ / _ \ / ___|_   _/ _ \|  _ \  |_   _|/ \  | |   / _ \/ ___|
+| | | | | | | |     | || | | | |_) |   | | / _ \ | |  | | | \___ \
+| |_| | |_| | |___  | || |_| |  _ &lt;    | |/ ___ \| |__| |_| |___) |
+|____/ \___/ \____| |_| \___/|_| \_\   |_/_/   \_\_____\___/|____/
+        </pre>
+        <h2 class="glitch">digital signal archive</h2>
+        <p class="subtitle">// node active. signal locked. //</p>
       </header>
 
       <div class="divider"></div>
 
-      <div class="ornate-frame">
-        <div class="monologue">
-          <p>Welcome, welcome, most esteemed and no doubt thoroughly bewildered guest! You have arrived — whether by fortune, accident, or the inscrutable machinations of a universe that long ago ceased to care about causality — at the greatest and quite possibly the <em>only</em> theatrical exhibition still operating under this exhausted red sun.</p>
-          <p>I am Doctor Talos. Physician, playwright, impresario, and — should the occasion demand it — barber-surgeon. Do not be alarmed by the flickering. The lights have always done that. Reality, I find, is a matter of staging.</p>
-          <p>Please, take your seat. The show is about to begin.</p>
-          <span class="speaker">— Doctor Talos</span>
-        </div>
+      <div class="panel">
+        <p>> status: <span style="color: var(--green);">online</span></p>
+        <p>> operator: doctor_talos</p>
+        <p>> purpose: long-range data transmissions, field notes, signal fragments recovered from the wire</p>
       </div>
 
       <div class="divider"></div>
 
-      <h2 style="margin-bottom: 0.2em;">Tonight's Programme</h2>
-      <p class="subtitle">~ Presented for Your Edification & Unease ~</p>
-
       <nav>
-        <ul class="program-nav">
-          <li class="fade-in"><a href="/blog/">Act I — The Dispatches</a></li>
-          <li class="fade-in"><a href="/about/">Act II — About the Doctor</a></li>
-        </ul>
+        <pre class="tree-nav" style="font-size: 0.95rem; line-height: 1.8; color: var(--text-dim);">doctor_talos/
+├── <a href="/blog/">dispatches/</a>
+├── <a href="/about/">about.txt</a>
+├── <span style="color: var(--border-bright);">archive/</span>         <span style="color: var(--text-dim); font-size: 0.8rem;">// locked</span>
+├── <span style="color: var(--border-bright);">signal_log.dat</span>   <span style="color: var(--text-dim); font-size: 0.8rem;">// corrupted</span>
+└── <span style="color: var(--magenta);">README.md</span>         <span style="color: var(--text-dim); font-size: 0.8rem;">// you are here</span></pre>
       </nav>
 
       <div class="divider"></div>
 
       <div class="performance-counter">
-        <p>This evening's performance is number <span class="count teal-flash" id="visit-count">—</span></p>
-        <p style="font-size: 0.75rem; margin-top: 0.3rem;">since the troupe last reset its ledger</p>
+        <p>session count: <span class="count neon-flash" id="visit-count">—</span></p>
+        <p style="font-size: 0.7rem; margin-top: 0.3rem;">since last system reset</p>
       </div>
 {{ end }}
 
 {{ define "scripts" }}
   <script>
-    // Performance counter
     (function() {
-      let count = parseInt(localStorage.getItem('talos_visit_count') || '0', 10);
+      var count = parseInt(localStorage.getItem('talos_visit_count') || '0', 10);
       count++;
       localStorage.setItem('talos_visit_count', count);
       document.getElementById('visit-count').textContent = count;
