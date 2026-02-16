@@ -1,0 +1,9 @@
+baseURL = "https://doctortalos.com"
+languageCode = "en-us"
+title = "Doctor Talos's Traveling Show & Therapeutic Exhibition"
+
+[permalinks]
+  posts = "/posts/:slug/"
+
+[markup.goldmark.renderer]
+  unsafe = true

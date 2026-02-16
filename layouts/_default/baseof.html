@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ block "title" . }}{{ .Title }} — Doctor Talos's Traveling Show{{ end }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+  {{ partial "starfield.html" . }}
+  {{ partial "curtain.html" . }}
+
+  <div class="parchment">
+    <div class="page-container curtain-content" id="main-content">
+      {{ block "main" . }}{{ end }}
+
+      {{ partial "footer.html" . }}
+    </div>
+  </div>
+
+  <script src="/js/curtain.js"></script>
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

@@ -1,0 +1,48 @@
+{{ define "title" }}{{ .Title }} — Doctor Talos's Traveling Show{{ end }}
+
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "") }}
+
+      <article>
+        <header>
+          <h1>{{ .Title }}</h1>
+          {{ with .Params.subtitle }}
+            <p class="subtitle">{{ . }}</p>
+          {{ end }}
+          <div class="post-meta">
+            <span class="date">{{ .Params.dateDisplay }}</span>
+          </div>
+        </header>
+        <div class="divider"></div>
+        <div class="post-content">
+          {{ .Content }}
+        </div>
+      </article>
+
+      {{ $posts := where site.RegularPages "Section" "posts" }}
+      {{ $sorted := $posts.ByDate }}
+      {{ $currentIndex := -1 }}
+      {{ range $i, $p := $sorted }}
+        {{ if eq $p.RelPermalink $.RelPermalink }}
+          {{ $currentIndex = $i }}
+        {{ end }}
+      {{ end }}
+
+      {{ if ge $currentIndex 0 }}
+      <nav class="post-nav">
+        <span>
+          {{ if gt $currentIndex 0 }}
+            {{ $prev := index $sorted (sub $currentIndex 1) }}
+            <a href="{{ $prev.RelPermalink }}">← Previous Dispatch</a>
+          {{ end }}
+        </span>
+        <a href="/blog/">↑ All Dispatches</a>
+        <span>
+          {{ if lt $currentIndex (sub (len $sorted) 1) }}
+            {{ $next := index $sorted (add $currentIndex 1) }}
+            <a href="{{ $next.RelPermalink }}">Next Dispatch →</a>
+          {{ end }}
+        </span>
+      </nav>
+      {{ end }}
+{{ end }}

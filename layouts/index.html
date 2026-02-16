@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor Talos's Traveling Show & Therapeutic Exhibition</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-</head>
-<body>
-  <!-- Starfield (the void beyond) -->
-  <div class="starfield">
-    <div class="stars"></div>
-    <div class="stars-2"></div>
-    <div class="stars-3"></div>
-  </div>
+{{ define "title" }}Doctor Talos's Traveling Show & Therapeutic Exhibition{{ end }}
 
-  <!-- Curtain overlay -->
-  <div class="curtain-overlay" id="curtain">
-    <div class="curtain-left"></div>
-    <div class="curtain-right"></div>
-  </div>
-
-  <!-- Main content -->
-  <div class="parchment">
-    <div class="page-container curtain-content" id="main-content">
-
+{{ define "main" }}
       <header style="margin-top: 2rem;">
         <h1 class="title-glow">Doctor Talos's<br>Traveling Show</h1>
         <h2 class="glitch">&amp; Therapeutic Exhibition</h2>
@@ -49,8 +25,8 @@
 
       <nav>
         <ul class="program-nav">
-          <li class="fade-in"><a href="blog.html">Act I — The Dispatches</a></li>
-          <li class="fade-in"><a href="about.html">Act II — About the Doctor</a></li>
+          <li class="fade-in"><a href="/blog/">Act I — The Dispatches</a></li>
+          <li class="fade-in"><a href="/about/">Act II — About the Doctor</a></li>
         </ul>
       </nav>
 
@@ -60,14 +36,9 @@
         <p>This evening's performance is number <span class="count teal-flash" id="visit-count">—</span></p>
         <p style="font-size: 0.75rem; margin-top: 0.3rem;">since the troupe last reset its ledger</p>
       </div>
+{{ end }}
 
-      <footer class="page-footer">
-        <p><em>The show must go on. The sun demands it.</em></p>
-      </footer>
-    </div>
-  </div>
-
-  <script src="js/curtain.js"></script>
+{{ define "scripts" }}
   <script>
     // Performance counter
     (function() {
@@ -77,5 +48,4 @@
       document.getElementById('visit-count').textContent = count;
     })();
   </script>
-</body>
-</html>
+{{ end }}

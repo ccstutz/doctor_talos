@@ -1,0 +1,31 @@
+{{ define "title" }}The Dispatches — Doctor Talos's Traveling Show{{ end }}
+
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "dispatches") }}
+
+      <header>
+        <h1 class="title-glow">The Dispatches</h1>
+        <p class="subtitle">~ Handbills, Broadsides & Communiqués from the Troupe ~</p>
+      </header>
+
+      <div class="divider"></div>
+
+      <div id="posts-container">
+        {{ $posts := where site.RegularPages "Section" "posts" }}
+        {{ if eq (len $posts) 0 }}
+          <p style="text-align:center; color: var(--gold-dim); font-style: italic;">No dispatches have been posted yet. The Doctor is composing.</p>
+        {{ else }}
+          {{ range $posts.ByDate.Reverse }}
+            <div class="post-card fade-in" onclick="window.location.href='{{ .RelPermalink }}'">
+              <div class="post-date">{{ .Params.dateDisplay }}</div>
+              <div class="post-title">{{ .Title }}</div>
+              {{ with .Params.subtitle }}
+                <div style="font-style: italic; color: var(--burgundy-deep); font-size: 0.9rem; margin-bottom: 0.5rem;">{{ . }}</div>
+              {{ end }}
+              <div class="post-preview">{{ .Summary }}</div>
+              <span class="read-more">Read this dispatch →</span>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+{{ end }}

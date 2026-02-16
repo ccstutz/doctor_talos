@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About the Doctor — Doctor Talos's Traveling Show</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-</head>
-<body>
-  <div class="starfield">
-    <div class="stars"></div>
-    <div class="stars-2"></div>
-    <div class="stars-3"></div>
-  </div>
+{{ define "title" }}About the Doctor — Doctor Talos's Traveling Show{{ end }}
 
-  <div class="curtain-overlay" id="curtain">
-    <div class="curtain-left"></div>
-    <div class="curtain-right"></div>
-  </div>
-
-  <div class="parchment">
-    <div class="page-container curtain-content" id="main-content">
-
-      <nav class="top-nav">
-        <a href="index.html">The Show</a>
-        <span class="sep">✦</span>
-        <a href="blog.html">Dispatches</a>
-        <span class="sep">✦</span>
-        <a href="about.html"><strong>The Doctor</strong></a>
-      </nav>
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "doctor") }}
 
       <header>
         <h1 class="title-glow">About the Doctor</h1>
@@ -57,7 +30,7 @@
         <div class="ornate-frame-double">
           <p class="drop-cap">This website is a small theatrical experiment — a blog, a choose-your-own-adventure story, and a love letter to Gene Wolfe's <em>Book of the New Sun</em>, wrapped in the trappings of a dying earth playbill.</p>
           <p>The name "Doctor Talos" comes from Wolfe's novel, where he is a charlatan, playwright, and showman who stages elaborate plays about the end of the world while the world is, in fact, ending. It seemed an appropriate patron for a website that is, itself, a kind of performance.</p>
-          <p>The site is built with nothing but HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies. Just text, style, and a little bit of madness. As the Doctor would have it.</p>
+          <p>The site is built with Hugo and deployed to Cloudflare Pages — but the spirit remains the same: text, style, and a little bit of madness. As the Doctor would have it.</p>
         </div>
       </div>
 
@@ -69,13 +42,4 @@
           <p style="font-style: italic; color: var(--burgundy-deep);">The Doctor may be reached by the usual avenues, though he makes no guarantees regarding the timeliness or coherence of his replies.</p>
         </div>
       </div>
-
-      <footer class="page-footer">
-        <p><em>The show must go on. The sun demands it.</em></p>
-      </footer>
-    </div>
-  </div>
-
-  <script src="js/curtain.js"></script>
-</body>
-</html>
+{{ end }}

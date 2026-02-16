@@ -4,36 +4,63 @@
 A static website themed as Doctor Talos's traveling theatrical show, inspired by Gene Wolfe's *Book of the New Sun*. Features a blog and theatrical "dying earth" aesthetics.
 
 ## Tech Stack
-- Pure HTML/CSS/JS — no frameworks, no build tools, no dependencies
-- Static files, deployed via Cloudflare Pages at doctortalos.com
-- Blog posts stored as JSON in `posts/`
+- Hugo static site generator
+- Deployed via Cloudflare Pages at doctortalos.com
+- Blog posts written in Markdown with YAML front matter
 
 ## File Structure
-- `index.html` — Landing page (the Playbill)
-- `blog.html` — Blog index (The Dispatches)
-- `post.html` — Individual post viewer (reads `?slug=` query param)
-- `about.html` — About the Doctor
-- `css/style.css` — Core styles, layout, typography
-- `css/animations.css` — Curtain rise, glitch effects, starfield
-- `js/curtain.js` — Entrance animation logic
-- `js/blog.js` — Blog listing & post rendering
-- `posts/*.json` — Blog post data
-- `publish.sh` — Auto-generates posts/index.json manifest, commits, and pushes
+- `hugo.toml` — Hugo configuration
+- `layouts/_default/baseof.html` — Base template (starfield, curtain, parchment shell)
+- `layouts/index.html` — Landing page
+- `layouts/_default/blog-index.html` — Blog index (The Dispatches)
+- `layouts/posts/single.html` — Individual post template
+- `layouts/_default/about.html` — About the Doctor
+- `layouts/partials/` — Shared partials (starfield, curtain, nav, footer)
+- `content/posts/*.md` — Blog posts (Markdown with YAML front matter)
+- `content/blog/_index.md` — Blog index content file
+- `content/about.md` — About page content file
+- `static/css/style.css` — Core styles, layout, typography
+- `static/css/animations.css` — Curtain rise, glitch effects, starfield
+- `static/js/curtain.js` — Entrance animation logic
+- `archetypes/posts.md` — Template for new posts
 
 ## Local Development
 ```bash
-python3 -m http.server -d /home/chris/git/doctor_talos
+hugo server
 ```
-Then open http://localhost:8000
+Then open http://localhost:1313
 
 ## Publishing a New Blog Post
-1. Create a JSON file in `posts/` (see `posts/template.json`)
-2. Run `./publish.sh "Add dispatch: Your Title"`
+```bash
+hugo new posts/003-my-slug.md
+# Edit content/posts/003-my-slug.md — write in Markdown, set draft: false
+git add content/posts/003-my-slug.md
+git commit -m "Add dispatch: Your Title"
+git push
+# Cloudflare builds automatically
+```
+
+## Post Front Matter Format
+```yaml
+title: "Post Title"
+subtitle: "Optional Subtitle"
+slug: "003-my-slug"
+date: 2026-02-15T12:00:00
+dateDisplay: "The 15th Day of the Month of Frost, Year of the New Sun"
+draft: false
+```
+
+## URL Structure
+- `/` — Landing page
+- `/blog/` — Blog index
+- `/posts/<slug>/` — Individual posts
+- `/about/` — About the Doctor
 
 ## Conventions
-- Blog posts use JSON format with fields: slug, title, subtitle, date, dateDisplay, content (array of paragraphs)
-- All state persistence uses localStorage
-- No external dependencies — everything is self-contained
+- Posts use `dateDisplay` for the in-universe date shown to readers
+- First paragraph of each post gets an automatic CSS drop cap
+- All state persistence (visit counter) uses localStorage
+- The curtain animation plays once per session (sessionStorage)
 
 ## Archived
 - The CYOA adventure ("The Play of the Sun's Last Day") lives at `/home/chris/git/doctor_talos_archive/`
