@@ -493,11 +493,10 @@ strong {
   margin: 0 auto;
   font-style: italic;
   line-height: 2;
-  white-space: pre-line;
 }
 
 .poem-content p {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 /* --- Serial Landing --- */
