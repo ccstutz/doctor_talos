@@ -353,6 +353,19 @@ strong {
   margin-bottom: 1.2em;
 }
 
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.2em;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: var(--magenta-dim);
+}
+
 .post-content img {
   display: block;
   max-width: 100%;
