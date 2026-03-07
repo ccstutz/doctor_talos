@@ -492,11 +492,11 @@ strong {
   max-width: 480px;
   margin: 0 auto;
   font-style: italic;
-  line-height: 2;
+  line-height: 1.6;
 }
 
 .poem-content p {
-  margin-bottom: 1.8em;
+  margin-bottom: 1.4em;
 }
 
 /* --- Serial Landing --- */
