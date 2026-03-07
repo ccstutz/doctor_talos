@@ -23,7 +23,8 @@
 
       <nav>
         <pre class="tree-nav" style="font-size: 0.95rem; line-height: 1.8; color: var(--text-dim);">doctor_talos/
-├── <a href="/blog/">dispatches/</a>
+├── <a href="/blog/">dispatches/</a>{{- $posts := where site.RegularPages "Section" "posts" }}{{- $recent := first 5 $posts.ByDate.Reverse }}{{- $last := sub (len $recent) 1 }}{{- range $i, $p := $recent }}
+│   {{ if eq $i $last }}└──{{ else }}├──{{ end }} <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>{{- end }}
 ├── <a href="/about/">about.txt</a>
 └── <span style="color: var(--magenta);">README.md</span>         <span style="color: var(--text-dim); font-size: 0.8rem;">// you are here</span></pre>
       </nav>
