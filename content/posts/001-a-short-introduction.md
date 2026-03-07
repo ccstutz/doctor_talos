@@ -20,7 +20,7 @@ My interests are fairly wide-ranging, but absolutely niche. I like analog statio
 - Book of the New Sun -- Gene Wolfe
 - Dungeon Crawler Carl -- Matt Dinniman
 - Anything by Robert Jackson Bennett
-# What you find here ... eventually
+# What you might find here ... eventually
 Eventually I will put up poems I have been working on, but also hope to share a few short stories.  I have plans for an episodic style adventure, and a cyberpunk themed choose your own adventure.
 # What you will not find here ...
 AI generated stories or poems or blog posts.  I used AI to build the site, but I refuse to let it generate any content.
