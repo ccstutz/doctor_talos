@@ -1,6 +1,7 @@
 baseURL = "https://doctortalos.com"
 languageCode = "en-us"
 title = "Doctor Talos — Digital Signal Archive"
+buildFuture = true
 
 [permalinks]
   posts = "/posts/:slug/"

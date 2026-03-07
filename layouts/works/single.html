@@ -1,0 +1,26 @@
+{{ define "title" }}{{ .Title }} — Doctor Talos{{ end }}
+
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "works") }}
+
+      <article>
+        <header>
+          <div class="work-form-label">[{{ .Params.form }}]</div>
+          <h1 class="works-single-title">{{ .Title }}</h1>
+          {{ with .Params.subtitle }}
+            <p class="subtitle">{{ . }}</p>
+          {{ end }}
+          <div class="post-meta">
+            <span class="date">{{ .Params.dateDisplay }}</span>
+          </div>
+        </header>
+        <div class="divider"></div>
+        <div class="works-content{{ if eq .Params.form "poem" }} poem-content{{ end }}">
+          {{ .Content }}
+        </div>
+      </article>
+
+      <nav class="post-nav" style="justify-content: center;">
+        <a href="/works/">↑ All Works</a>
+      </nav>
+{{ end }}

@@ -200,6 +200,42 @@
   }
 }
 
+/* --- Magenta Neon Glow for Works Title --- */
+.title-glow-magenta {
+  color: var(--magenta);
+  text-shadow:
+    0 0 10px var(--magenta-glow),
+    0 0 30px var(--magenta-glow);
+  animation: neon-flicker-magenta 8s ease-in-out infinite;
+}
+
+@keyframes neon-flicker-magenta {
+  0%, 92%, 100% {
+    text-shadow:
+      0 0 10px var(--magenta-glow),
+      0 0 30px var(--magenta-glow);
+  }
+  93% {
+    text-shadow: 0 0 5px var(--magenta-glow);
+    opacity: 0.9;
+  }
+  95% {
+    text-shadow:
+      0 0 20px rgba(255, 0, 255, 0.4),
+      0 0 40px rgba(255, 0, 255, 0.2),
+      0 0 60px rgba(0, 255, 65, 0.1);
+  }
+  97% {
+    text-shadow: 0 0 5px var(--magenta-glow);
+    opacity: 0.85;
+  }
+  98% {
+    text-shadow:
+      0 0 15px rgba(255, 0, 255, 0.3),
+      0 0 40px rgba(255, 0, 255, 0.15);
+  }
+}
+
 /* --- Screen Dim (for adventure mode) --- */
 .screen-dim {
   transition: filter 1s ease;

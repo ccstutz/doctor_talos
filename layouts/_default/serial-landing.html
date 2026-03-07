@@ -1,0 +1,36 @@
+{{ define "title" }}{{ .Title }} — Doctor Talos{{ end }}
+
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "works") }}
+
+      <header>
+        <div class="work-form-label">[serial]</div>
+        <h1 class="works-single-title">{{ .Title }}</h1>
+        {{ with .Params.description }}
+          <p class="subtitle">{{ . }}</p>
+        {{ end }}
+      </header>
+
+      <div class="divider"></div>
+
+      {{ $chapters := .Pages.ByDate }}
+      {{ if gt (len $chapters) 0 }}
+        <div class="chapter-list">
+          {{ range $chapters }}
+            <div class="chapter-entry">
+              <span class="chapter-num">{{ printf "%02d" .Params.chapter }}</span>
+              <a href="{{ .RelPermalink }}" class="chapter-title-link">{{ .Title }}</a>
+              <span class="work-date">{{ .Params.dateDisplay }}</span>
+            </div>
+          {{ end }}
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="{{ (index $chapters 0).RelPermalink }}" class="begin-link">begin reading →</a>
+        </div>
+      {{ end }}
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="/works/" style="font-size: 0.8rem; color: var(--text-dim); border-bottom: none;">↑ all works</a>
+      </div>
+{{ end }}

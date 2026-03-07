@@ -1,0 +1,32 @@
+{{ define "title" }}works — Doctor Talos{{ end }}
+
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "works") }}
+
+      <header>
+        <h1 class="title-glow-magenta">works</h1>
+      </header>
+
+      <div class="divider"></div>
+
+      <div class="works-list">
+        {{ $allWorks := where site.RegularPages "Section" "works" }}
+        {{ $regular := where $allWorks ".Parent.RelPermalink" "/works/" }}
+        {{ $allSections := where site.Pages "Kind" "section" }}
+        {{ $worksSections := where $allSections "Section" "works" }}
+        {{ $serials := where $worksSections "RelPermalink" "ne" "/works/" }}
+        {{ $all := $regular | append $serials }}
+        {{ $sorted := sort $all "Date" "desc" }}
+        {{ if eq (len $sorted) 0 }}
+          <p style="text-align:center; color: var(--text-dim);">// nothing here yet //</p>
+        {{ else }}
+          {{ range $sorted }}
+            <div class="work-entry fade-in">
+              <span class="work-form">[{{ .Params.form }}]</span>
+              <a href="{{ .RelPermalink }}" class="work-title-link">{{ .Title }}</a>
+              <span class="work-date">{{ .Params.dateDisplay }}</span>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+{{ end }}

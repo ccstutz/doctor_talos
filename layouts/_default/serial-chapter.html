@@ -1,0 +1,49 @@
+{{ define "title" }}{{ .Title }} — {{ .Parent.Title }} — Doctor Talos{{ end }}
+
+{{ define "main" }}
+      {{ partial "nav.html" (dict "active" "works") }}
+
+      <div class="serial-breadcrumb">
+        <a href="{{ .Parent.RelPermalink }}">← {{ .Parent.Title }}</a>
+      </div>
+
+      <article>
+        <header>
+          <div class="work-form-label">[serial — ch. {{ printf "%02d" .Params.chapter }}]</div>
+          <h1 class="works-single-title">{{ .Title }}</h1>
+          <div class="post-meta">
+            <span class="date">{{ .Params.dateDisplay }}</span>
+          </div>
+        </header>
+        <div class="divider"></div>
+        <div class="works-content">
+          {{ .Content }}
+        </div>
+      </article>
+
+      {{ $chapters := .Parent.Pages.ByDate }}
+      {{ $currentIndex := -1 }}
+      {{ range $i, $p := $chapters }}
+        {{ if eq $p.RelPermalink $.RelPermalink }}
+          {{ $currentIndex = $i }}
+        {{ end }}
+      {{ end }}
+
+      {{ if ge $currentIndex 0 }}
+      <nav class="post-nav">
+        <span>
+          {{ if gt $currentIndex 0 }}
+            {{ $prev := index $chapters (sub $currentIndex 1) }}
+            <a href="{{ $prev.RelPermalink }}">← ch. {{ printf "%02d" $prev.Params.chapter }}</a>
+          {{ end }}
+        </span>
+        <a href="{{ .Parent.RelPermalink }}">↑ {{ .Parent.Title }}</a>
+        <span>
+          {{ if lt $currentIndex (sub (len $chapters) 1) }}
+            {{ $next := index $chapters (add $currentIndex 1) }}
+            <a href="{{ $next.RelPermalink }}">ch. {{ printf "%02d" $next.Params.chapter }} →</a>
+          {{ end }}
+        </span>
+      </nav>
+      {{ end }}
+{{ end }}

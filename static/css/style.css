@@ -417,6 +417,159 @@ strong {
   letter-spacing: 0.04em;
 }
 
+/* --- Works Index --- */
+.works-list {
+  margin: 1.5rem 0;
+}
+
+.work-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.work-entry:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.work-form {
+  color: var(--magenta);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 8rem;
+}
+
+.work-title-link {
+  flex: 1;
+  color: var(--text-bright);
+  border-bottom: none;
+  font-size: 0.95rem;
+}
+
+.work-title-link:hover {
+  color: var(--magenta);
+  text-shadow: 0 0 8px var(--magenta-glow);
+  border-bottom: none;
+}
+
+.work-date {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --- Works Single Page --- */
+.work-form-label {
+  text-align: center;
+  color: var(--magenta);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.works-single-title {
+  color: var(--magenta);
+  text-shadow: 0 0 10px var(--magenta-glow);
+}
+
+.works-content {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.works-content p {
+  margin-bottom: 1.2em;
+}
+
+.poem-content {
+  max-width: 480px;
+  margin: 0 auto;
+  font-style: italic;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+.poem-content p {
+  margin-bottom: 2em;
+}
+
+/* --- Serial Landing --- */
+.chapter-list {
+  margin: 1.5rem 0;
+}
+
+.chapter-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.chapter-entry:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.chapter-num {
+  color: var(--magenta-dim);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+
+.chapter-title-link {
+  flex: 1;
+  color: var(--text-bright);
+  border-bottom: none;
+  font-size: 0.95rem;
+}
+
+.chapter-title-link:hover {
+  color: var(--magenta);
+  text-shadow: 0 0 8px var(--magenta-glow);
+  border-bottom: none;
+}
+
+.begin-link {
+  font-size: 0.85rem;
+  color: var(--magenta);
+  border-bottom: 1px solid var(--magenta-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.begin-link:hover {
+  color: var(--text-bright);
+  border-color: var(--text-bright);
+  text-shadow: none;
+}
+
+/* --- Serial Chapter --- */
+.serial-breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.serial-breadcrumb a {
+  color: var(--text-dim);
+  border-bottom: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.serial-breadcrumb a:hover {
+  color: var(--magenta);
+  text-shadow: none;
+}
+
 /* --- About Page --- */
 .about-section {
   margin: 2rem 0;
