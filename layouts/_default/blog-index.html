@@ -5,7 +5,6 @@
 
       <header>
         <h1 class="title-glow">dispatches</h1>
-        <p class="subtitle">// transmissions from the wire //</p>
       </header>
 
       <div class="divider"></div>
@@ -13,7 +12,7 @@
       <div id="posts-container">
         {{ $posts := where site.RegularPages "Section" "posts" }}
         {{ if eq (len $posts) 0 }}
-          <p style="text-align:center; color: var(--text-dim);">// no dispatches found. the doctor is composing. //</p>
+          <p style="text-align:center; color: var(--text-dim);">// nothing here yet //</p>
         {{ else }}
           {{ range $posts.ByDate.Reverse }}
             <div class="post-card fade-in" onclick="window.location.href='{{ .RelPermalink }}'">
@@ -23,7 +22,7 @@
                 <div style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 0.5rem;">// {{ . }}</div>
               {{ end }}
               <div class="post-preview">{{ .Summary }}</div>
-              <span class="read-more">> read dispatch</span>
+              <span class="read-more">> read →</span>
             </div>
           {{ end }}
         {{ end }}
