@@ -7,21 +7,26 @@ dateDisplay: "2026.03.07 // 12:12 UTC"
 draft: false
 ---
 
-# Why blog?
-I always wanted to create with words, but I'm terrible at following through. I also am rarely willing or able to commit the time and mental effort it takes write well.  So, my skill is limited, my time is limited, but I still want a space to put things out into the ether when the mood strikes or mood requires
-# Why now?
-In a word? vibe coding.  Initially I just was just testing the waters to see what claude code was capable of.  When I asked it to create a "cyberpunk themed" website, claude just made it ... from scratch and it told me how to register a domain name and host it for free. It gives me full control over everything.  I do not need any bells and whistles. I'm not looking for comments or engagement i'm not worried about comments or SEO or whatever.  So here we are.
-# Interests
-My interests are fairly wide-ranging, but absolutely niche. I like analog stationery, and fancy tea.  I like gardening and poetry. My favorite aesthetic has got to be cyberpunk. I play video and board games, casually. I read science fiction, fantasy, and some "literature".  In no particular order some favorite books of mine are:
-- Little, Big -- John Crowley
-- Neuromancer -- William Gibson
-- The Hobbit/Lord of the Rings -- JRR Tolkein
-- The Gray House -- Mariam Petrosyan
-- Book of the New Sun -- Gene Wolfe
-- Dungeon Crawler Carl -- Matt Dinniman
+## Why blog?
+I've always wanted to write more than I actually do. Time is short, follow-through is shorter, and the skill is still catching up. But sometimes the mood hits and I need somewhere to put things. This is that somewhere.
+
+## Why now?
+Vibe coding. I was testing what Claude Code could actually do, asked it to build a cyberpunk-themed site, and it just... did. Told me how to register a domain and host it for free. Full control, no fuss. So here we are.
+
+## Interests
+Wide-ranging and deeply niche: analog stationery, fancy tea, gardening, poetry, cyberpunk aesthetics, casual video and board games, science fiction, fantasy, and the occasional piece of capital-L Literature. Some favorites:
+
+- *Little, Big* — John Crowley
+- *Neuromancer* — William Gibson
+- *The Hobbit / Lord of the Rings* — Tolkien
+- *The Gray House* — Mariam Petrosyan
+- *Book of the New Sun* — Gene Wolfe
+- *Dungeon Crawler Carl* — Matt Dinniman
 - Anything by Robert Jackson Bennett
-# What you might find here ... eventually
-Eventually I will put up poems I have been working on, but also hope to share a few short stories.  I have plans for an episodic style adventure, and a cyberpunk themed choose your own adventure.
-# What you will not find here ...
-AI generated stories or poems or blog posts.  I used AI to build the site, but I refuse to let it generate any content.
+
+## What you might find here
+Poems I've been sitting on, maybe some short stories. I have a vague episodic adventure in mind, and a cyberpunk choose-your-own-adventure that may or may not ever materialize.
+
+## What you won't find here
+AI-generated writing. I used it to build the site. The words are mine.
 
