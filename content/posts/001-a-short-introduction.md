@@ -27,6 +27,3 @@ Wide-ranging and deeply niche: analog stationery, fancy tea, gardening, poetry, 
 ## What you might find here
 Poems I've been sitting on, maybe some short stories. I have a vague episodic adventure in mind, and a cyberpunk choose-your-own-adventure that may or may not ever materialize.
 
-## What you won't find here
-AI-generated writing. I used it to build the site. The words are mine.
-
